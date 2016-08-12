@@ -1,0 +1,24 @@
+{
+  "name": "laravel-elixir-config",
+  "version": "1.0.0-9",
+  "description": "Overrides laravel elixir config from elixir.json",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "laravel",
+    "elixir",
+    "config"
+  ],
+  "author": {
+    "name": "Guntur Poetra"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.14.1"
+  },
+  "devDependencies": {
+    "laravel-elixir": "^6.0.0-9"
+  }
+}
