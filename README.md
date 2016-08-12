@@ -4,19 +4,21 @@ Overrides laravel elixir configuration from `elixir.json`.
 
 This is for laravel elixir version ^6.0.*
 
-### NPM Install
+### Install
 
-npm install --save-dev laravel-elixir-config
-
+``` bash
+$ npm install --save-dev laravel-elixir-config
+```
 
 ### Usage
 
-`// Gulpfile.js`
-
 ``` javascript
+// Gulpfile.js
+
 var Elixir = require('laravel-elixir');
 
 require('laravel-elixir-config');
+
 ```
 
 ### License
