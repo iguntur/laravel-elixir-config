@@ -6,7 +6,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -30,5 +30,7 @@
   },
   "devDependencies": {
     "laravel-elixir": "^6.0.0-9"
+    "ava": "^0.16.0",
+    "gulp": "^3.9.1",
   }
 }
