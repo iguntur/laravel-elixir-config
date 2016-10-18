@@ -1,6 +1,6 @@
 {
   "name": "laravel-elixir-config",
-  "version": "1.0.0-9",
+  "version": "1.0.1",
   "description": "Overrides laravel elixir config from elixir.json",
   "files": [
     "index.js"
