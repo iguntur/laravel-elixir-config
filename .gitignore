@@ -1,6 +1,2 @@
-# Files
-*.log
-*.logs
-
-# Directories
+npm-debug.log
 node_modules
