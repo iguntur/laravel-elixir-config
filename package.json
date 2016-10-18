@@ -2,21 +2,27 @@
   "name": "laravel-elixir-config",
   "version": "1.0.0-9",
   "description": "Overrides laravel elixir config from elixir.json",
-  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iGuntur/laravel-elixir-config"
+    "url": "iguntur/laravel-elixir-config"
   },
   "keywords": [
     "laravel",
     "elixir",
-    "config"
+    "config",
+    "overrides",
+    "overwrites"
   ],
   "author": {
-    "name": "Guntur Poetra"
+    "name": "Guntur Poetra",
+    "email": "poetra.guntur@gmail.com",
+    "url": "guntur.starmediateknik.com"
   },
   "license": "MIT",
   "dependencies": {
