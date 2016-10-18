@@ -27,6 +27,7 @@
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.16.4",
+    "path-exists": "^2.0.0"
   },
   "devDependencies": {
     "ava": "^0.16.0",

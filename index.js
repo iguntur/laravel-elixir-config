@@ -3,6 +3,7 @@
 var fs = require('fs');
 var _ = require('lodash');
 var Elixir = require('laravel-elixir');
+var pathExists = require('path-exists');
 
 /**
  * Allow for config overrides, via an elixir.json file.
@@ -12,6 +13,7 @@ var Elixir = require('laravel-elixir');
 Elixir.configFile = function (file) {
 	var overrides;
 
+	if (pathExists.sync(file)) {
 		overrides = JSON.parse(fs.readFileSync(file, 'utf8'));
 
 		_.merge(Elixir.config, overrides);
