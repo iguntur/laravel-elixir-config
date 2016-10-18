@@ -1,16 +1,17 @@
-# Laravel Elixir Config
+# laravel-elixir-config
 
-Overrides laravel elixir configuration from `elixir.json`.
+> Overrides laravel elixir configuration from `elixir.json`.
 
-This is for laravel elixir version ^6.0.0-9
 
-### Install
+This is for laravel elixir version ^6.0.x
+
+## Install
 
 ``` bash
 npm install --save-dev laravel-elixir-config
 ```
 
-### Usage
+## Usage
 
 create `elixir.json` file in project path
 
@@ -23,20 +24,21 @@ Example
 ```
 
 
-``` javascript
+``` js
 // Gulpfile.js
 
-var Elixir = require('laravel-elixir');
+const elixir = require('laravel-elixir');
 
+// ...
 require('laravel-elixir-config');
-
 ```
 
-### Official Documentation
+## Official Documentations
 
-Documentation for Elixir can be found on the [Laravel website](http://laravel.com/docs/elixir).
+- Documentation for Elixir can be found on the [Laravel website](http://laravel.com/docs/elixir).
+- Documentation for Elixir repositories can be found on the [Github](https://github.com/laravel/elixir)
 
-Documentation for Elixir repositories can be found on the [Github](https://github.com/laravel/elixir)
 
-### License
-MIT License
+## License
+
+MIT @ [Guntur](guntur.starmediateknik.com)
