@@ -41,4 +41,4 @@ require('laravel-elixir-config');
 
 ## License
 
-MIT @ [Guntur](http://guntur.starmediateknik.com)
+MIT @ [Guntur Poetra](http://guntur.starmediateknik.com)
