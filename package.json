@@ -27,11 +27,11 @@
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.16.4",
-    "path-exists": "^2.0.0"
   },
   "devDependencies": {
     "ava": "^0.16.0",
     "gulp": "^3.9.1",
-    "laravel-elixir": "^6.0.0-11"
+    "laravel-elixir": "^6.0.0-11",
+    "path-exists": "^2.1.0"
   }
 }

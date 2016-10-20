@@ -3,7 +3,6 @@
 var fs = require('fs');
 var _ = require('lodash');
 var Elixir = require('laravel-elixir');
-var pathExists = require('path-exists');
 
 /**
  * Allow for config overrides, via an elixir.json file.
