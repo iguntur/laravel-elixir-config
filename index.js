@@ -2,6 +2,7 @@
 
 var fs = require('fs');
 var _ = require('lodash');
+var yaml = require('yamljs');
 var Elixir = require('laravel-elixir');
 
 /**
