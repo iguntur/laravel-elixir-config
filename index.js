@@ -25,7 +25,7 @@ Elixir.configFile = function (file) {
 	}
 
 	if (/\.(yml|yaml)$/i.test(file)) {
-		overrides = yaml.load(file)
+		overrides = yaml.load(file);
 	}
 
 	_.merge(Elixir.config, overrides);
