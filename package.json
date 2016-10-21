@@ -13,11 +13,16 @@
     "url": "iguntur/laravel-elixir-config"
   },
   "keywords": [
-    "laravel",
-    "elixir",
+    "6.x.x",
     "config",
+    "elixir",
+    "json",
+    "laravel",
     "overrides",
-    "overwrites"
+    "overwrites",
+    "support",
+    "yaml",
+    "yml"
   ],
   "author": {
     "name": "Guntur Poetra",
