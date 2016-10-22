@@ -1,7 +1,7 @@
 import fs from 'fs';
+import del from 'del';
 import test from 'ava';
 import yaml from 'yamljs';
-import pathExists from 'path-exists';
 
 const fixtures = {
 	json: { appPath: "json-appPath", viewPath: "json-viewPath", css: { folder: "json-css-folder" } },
