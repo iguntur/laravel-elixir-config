@@ -10,7 +10,7 @@ var opts = fs.readdirSync('./').filter(function (fp) {
 	return /^(elixir.(json|yml|yaml))$/i.test(fp);
 });
 
-var fp = path.join(__dirname, opts.toString());
+var fp = path.resolve('', opts.toString());
 
 if (opts.length > 1) {
 	throw new Error('Too much config files in project root directory. Use `elixir.json` or `elixir.(yml|yaml)`.');
