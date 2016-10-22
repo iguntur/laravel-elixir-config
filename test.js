@@ -4,59 +4,71 @@ import test from 'ava';
 import yaml from 'yamljs';
 
 const fixtures = {
-	json: { appPath: "json-appPath", viewPath: "json-viewPath", css: { folder: "json-css-folder" } },
-	yaml: { appPath: "yaml-appPath", viewPath: "yaml-viewPath", css: { folder: "yaml-css-folder" } }
+	json: {viewPath: 'json-viewPath', css: {folder: 'json-css-folder'}},
+	yaml: {viewPath: 'yaml-viewPath', css: {folder: 'yaml-css-folder'}}
 };
 
-function requireJson(t) {
+function generateFiles(t, files) {
 	return new Promise(resolve => {
-		if (pathExists.sync('elixir.yml')) fs.unlinkSync('elixir.yml');
-		require('./').fileName('elixir.json');
+		Object.keys(require.cache).forEach(key => delete require.cache[key]);
+
+		[].concat(files).forEach(file => {
+			if (/\.(json)$/i.test(file)) {
+				fs.writeFileSync(file, JSON.stringify(t.context.from.json, null, '\t'));
+			}
+
+			if (/\.(yml|yaml)$/i.test(file)) {
+				fs.writeFileSync(file, yaml.stringify(t.context.from.yaml, 2));
+			}
+		});
+
 		resolve();
 	});
 }
 
-function requireYaml(t) {
-	return new Promise(resolve => {
-		if (pathExists.sync('elixir.json')) fs.unlinkSync('elixir.json');
-		require('./').fileName('elixir.yml');
-		resolve();
-	});
+function compare(t) {
+	const n = t.context.newConfig;
+	const o = t.context.oldConfig;
+
+	t.notDeepEqual(n, o);
+	t.not(n.viewPath, o.viewPath);
+	t.not(n.css.folder, o.css.folder);
 }
 
-test.beforeEach(t => {
-	fs.writeFileSync('elixir.json', JSON.stringify(fixtures.json, null, '\t'));
-	fs.writeFileSync('elixir.yml', yaml.stringify(fixtures.yaml, 4));
-
-	t.context.Elixir = require('laravel-elixir').config;
-	t.context.config = {
-		json: JSON.parse(fs.readFileSync('elixir.json', 'utf8')),
-		yaml: yaml.load('elixir.yml')
-	};
+test.beforeEach(async t => {
+	t.context.from = fixtures;
+	t.context.newConfig = null;
+	t.context.file = ext => 'elixir.' + ext;
+	await del([t.context.file('*')]);
+	t.context.oldConfig = require('laravel-elixir').config;
 });
 
-test.serial('throws', t => {
-	t.throws(() => require('./'));
-});
+test.afterEach('cleanup', async t => await del([t.context.file('*')]));
 
-test.serial('JSON: overrides', async t => {
-	await requireJson(t);
-
-	t.true(t.context.Elixir.appPath === t.context.config.json.appPath);
-	t.true(t.context.Elixir.viewPath === t.context.config.json.viewPath);
-	t.true(t.context.Elixir.css.folder === t.context.config.json.css.folder);
-});
-
-test.serial('YAML: overrides', async t => {
-	await requireYaml(t);
-
-	t.true(t.context.Elixir.appPath === t.context.config.yaml.appPath);
-	t.true(t.context.Elixir.viewPath === t.context.config.yaml.viewPath);
-	t.true(t.context.Elixir.css.folder === t.context.config.yaml.css.folder);
-});
-
-test.after('cleanup', t => {
-	['elixir.json', 'elixir.yml'].forEach(f => {
-		if (pathExists.sync(f)) fs.unlinkSync(f);
+test.serial('Cancel overrides - return throws an error', async t => {
+	await generateFiles(t, [t.context.file('json'), t.context.file('yml')]);
+	t.throws(() => {
+		require('laravel-elixir');
+		require('./');
 	});
+});
+
+test.serial('Overrides from `elixir.json`', async t => {
+	await generateFiles(t, t.context.file('json'));
+	t.context.newConfig = require('laravel-elixir').config;
+	require('./'); /* running merge from 'elixir.json' */
+
+	compare(t);
+	t.true(t.context.newConfig.viewPath === t.context.from.json.viewPath);
+	t.true(t.context.newConfig.css.folder === t.context.from.json.css.folder);
+});
+
+test.serial('Overrides from `elixir.yml`', async t => {
+	await generateFiles(t, t.context.file('yml'));
+	t.context.newConfig = require('laravel-elixir').config;
+	require('./'); /* running merge from 'elixir.yml' */
+
+	compare(t);
+	t.true(t.context.newConfig.viewPath === t.context.from.yaml.viewPath);
+	t.true(t.context.newConfig.css.folder === t.context.from.yaml.css.folder);
 });
