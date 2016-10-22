@@ -1,4 +1,4 @@
-# laravel-elixir-config [![Build Status](https://travis-ci.org/iguntur/laravel-elixir-config.svg?branch=master)](https://travis-ci.org/iguntur/laravel-elixir-config) [![npm](https://img.shields.io/npm/v/laravel-elixir-config.svg?style=flat-square)](https://npmjs.com/package/laravel-elixir-config) [![npm](https://img.shields.io/npm/l/laravel-elixir-config.svg?style=flat-square)](#)
+# laravel-elixir-config [![Build Status](https://travis-ci.org/iguntur/laravel-elixir-config.svg?branch=master)](https://travis-ci.org/iguntur/laravel-elixir-config) [![npm](https://img.shields.io/npm/v/laravel-elixir-config.svg?style=flat-square)](https://npmjs.com/package/laravel-elixir-config)
 
 > Overrides [laravel-elixir](https://github.com/laravel/elixir) configuration from **`elixir.json`** or **`elixir.yml`**.
 
