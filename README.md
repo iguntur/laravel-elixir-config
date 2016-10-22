@@ -36,7 +36,7 @@ require('laravel-elixir-config');
 ## Official Documentations
 
 - Documentation for Elixir can be found on the [Laravel website](http://laravel.com/docs/elixir).
-- Documentation for Elixir repositories can be found on the [Github](https://github.com/laravel/elixir)
+- [Laravel elixir](https://github.com/laravel/elixir) source code.
 
 
 ## License
