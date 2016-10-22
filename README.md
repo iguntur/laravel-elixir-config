@@ -1,15 +1,23 @@
 # laravel-elixir-config [![Build Status](https://travis-ci.org/iguntur/laravel-elixir-config.svg?branch=master)](https://travis-ci.org/iguntur/laravel-elixir-config) [![npm](https://img.shields.io/npm/v/laravel-elixir-config.svg?style=flat-square)](https://npmjs.com/package/laravel-elixir-config) [![npm](https://img.shields.io/npm/l/laravel-elixir-config.svg?style=flat-square)](#)
 
-> Overrides laravel elixir configuration from `elixir.json`.
+> Overrides [laravel-elixir](https://github.com/laravel/elixir) configuration from **`elixir.json`** or **`elixir.yml`**.
 
 
-This is for laravel elixir version ^6.0.x
+## Why?
+
+> Since [laravel-elixir](https://github.com/laravel/elixir) version **^6.0.x**, overrides the configuration from **`elixir.json`** has been removed. See [#648](https://github.com/laravel/elixir/issues/648).
+
+- Set the config in your Gulpfile instead.
+- Write the config with `json` or `yaml` format, everything you like.
+- Assign an object
+
 
 ## Install
 
 ``` bash
 npm install --save-dev laravel-elixir-config
 ```
+
 
 ## Usage
 
