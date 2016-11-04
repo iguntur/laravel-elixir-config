@@ -34,7 +34,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.16.4",
+    "lodash.merge": "^4.6.0",
     "yamljs": "^0.2.8"
   },
   "devDependencies": {

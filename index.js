@@ -1,7 +1,7 @@
 'use strict';
 var fs = require('fs');
 var path = require('path');
-var _ = require('lodash');
+var merge = require('lodash.merge');
 var yaml = require('yamljs');
 var Elixir = require('laravel-elixir');
 
@@ -30,7 +30,7 @@ Elixir.configFile = function (file) {
 		overrides = yaml.load(file);
 	}
 
-	_.merge(Elixir.config, overrides);
+	merge(Elixir.config, overrides);
 };
 
 Elixir.configFile(fp);
